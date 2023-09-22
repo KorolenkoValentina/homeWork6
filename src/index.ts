@@ -20,6 +20,7 @@ class Circle extends Shape{
 
     calculateArea(): number {
         return Math.PI * this.radius ** 2;
+        // return Math.PI * Math.pow(this.radius, 2)
     }
 }
 
