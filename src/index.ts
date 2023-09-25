@@ -11,6 +11,10 @@ abstract class Shape {
    
 }
 
+interface IFormula {
+    print(): string;
+}
+
 
 class Circle extends Shape{
     constructor(public readonly radius: number, color: string) {
@@ -24,7 +28,7 @@ class Circle extends Shape{
     }
 }
 
-class Rectangle extends Shape{
+class Rectangle extends Shape implements IFormula{
     constructor(public readonly width: number, public readonly height: number, color: string) {
         super("Rectangle", color);
     }
@@ -33,12 +37,12 @@ class Rectangle extends Shape{
         return this.width * this.height;
     }
 
-    print(): void {
-        console.log(`${this.name} Area Formula: width * height`);
+    print(): string {
+        return (`${this.name} Area Formula: width * height`);
     }
 }
 
-class Square extends  Shape {
+class Square extends  Shape implements IFormula {
     constructor(public readonly sideLength: number, color: string) {
         super("Square", color);
     }
@@ -47,8 +51,8 @@ class Square extends  Shape {
         return this.sideLength * this.sideLength;
     }
 
-    print(): void {
-        console.log(`${this.name} Square Area Formula: sideLength * sideLength`);
+    print(): string {
+        return (`${this.name} Square Area Formula: sideLength * sideLength`);
     }
 }
 class Triangle extends Shape {
